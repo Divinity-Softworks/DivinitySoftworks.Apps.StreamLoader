@@ -1,0 +1,8 @@
+﻿<Application x:Class="DivinitySoftworks.Apps.StreamLoader.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DivinitySoftworks.Apps.StreamLoader">
+    <Application.Resources>
+        <ResourceDictionary Source="/Resources/Default.xaml" />
+    </Application.Resources>
+</Application>

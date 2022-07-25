@@ -1,0 +1,223 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="clr-namespace:DivinitySoftworks.Apps.StreamLoader.UI.Components">
+    <!-- Colors -->
+    <Color x:Key="Colors.White" R="255" G="255" B="255" A="255" />
+    <Color x:Key="Colors.LightGray" R="211" G="211" B="211" A="255" />
+    <Color x:Key="Colors.Gray" R="121" G="119" B="144" A="255" />
+    <Color x:Key="Colors.Black" R="0" G="0" B="0" A="255" />
+    <Color x:Key="Colors.Purple" R="39" G="36" B="69" A="255" />
+    <Color x:Key="Colors.LightPurple" R="46" G="43" B="74" A="255" />
+    <Color x:Key="Colors.Sand" R="255" G="243" B="234" A="255" />
+    <Color x:Key="Colors.Pink" R="218" G="108" B="109" A="255" />
+    <Color x:Key="Colors.Red" R="216" G="109" B="109" A="255" />
+    <Color x:Key="Colors.MediumRed" R="243" G="219" B="218" A="255" />
+    <Color x:Key="Colors.LightRed" R="250" G="232" B="231" A="255" />
+    <Color x:Key="Colors.Orange" R="255" G="166" B="112" A="255" />
+    <Color x:Key="Colors.Green" R="48" G="186" B="153" A="255" />
+    <Color x:Key="Colors.MediumGreen" R="203" G="232" B="224" A="255" />
+    <Color x:Key="Colors.LightGreen" R="225" G="242" B="238" A="255" />
+
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="Brushes.White" Color="{StaticResource Colors.White}" />
+    <SolidColorBrush x:Key="Brushes.LightGray" Color="{StaticResource Colors.LightGray}" />
+    <SolidColorBrush x:Key="Brushes.Gray" Color="{StaticResource Colors.Gray}" />
+    <SolidColorBrush x:Key="Brushes.Black" Color="{StaticResource Colors.Black}" />
+    <SolidColorBrush x:Key="Brushes.Purple" Color="{StaticResource Colors.Purple}" />
+    <SolidColorBrush x:Key="Brushes.LightPurple" Color="{StaticResource Colors.LightPurple}" />
+    <SolidColorBrush x:Key="Brushes.Sand" Color="{StaticResource Colors.Sand}" />
+    <SolidColorBrush x:Key="Brushes.Pink" Color="{StaticResource Colors.Pink}" />
+    <SolidColorBrush x:Key="Brushes.Red" Color="{StaticResource Colors.Red}" />
+    <SolidColorBrush x:Key="Brushes.MediumRed" Color="{StaticResource Colors.MediumRed}" />
+    <SolidColorBrush x:Key="Brushes.LightRed" Color="{StaticResource Colors.LightRed}" />
+    <SolidColorBrush x:Key="Brushes.Orange" Color="{StaticResource Colors.Orange}" />
+    <SolidColorBrush x:Key="Brushes.Green" Color="{StaticResource Colors.Green}" />
+    <SolidColorBrush x:Key="Brushes.MediumGreen" Color="{StaticResource Colors.MediumGreen}" />
+    <SolidColorBrush x:Key="Brushes.LightGreen" Color="{StaticResource Colors.LightGreen}" />
+    
+    <FontFamily x:Key="Fonts.Primary">Arial Rounded MT Bold</FontFamily>
+    <FontFamily x:Key="Fonts.Secondary">Arial</FontFamily>
+
+    <Style TargetType="{x:Type c:DateTimeLabel}">
+        <Setter Property="Foreground" Value="{StaticResource Brushes.Purple}" />
+    </Style>
+    
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{StaticResource Brushes.Purple}" />
+    </Style>
+
+    <Style TargetType="{x:Type ProgressBar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                    <Grid MinHeight="8" MinWidth="200" Background="{TemplateBinding Background}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Determinate" />
+                                <VisualState x:Name="Indeterminate">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Duration="00:00:00"
+                                                                       Storyboard.TargetName="PART_Indicator"
+                                                                       Storyboard.TargetProperty="Background">
+                                            <DiscreteObjectKeyFrame KeyTime="00:00:00">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <SolidColorBrush>Transparent</SolidColorBrush>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Border x:Name="PART_Track" Background="#EFEFEF" CornerRadius="4" />
+                        <Border Background="{TemplateBinding Foreground}">
+                            <Border.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Grid Background="Transparent" 
+                                              Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType={x:Type Border}}}" 
+                                              Height="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type Border}}}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="PART_Indicator" CornerRadius="4" HorizontalAlignment="Left" Background="{TemplateBinding Foreground}" MinWidth="8" >
+                                                <Grid ClipToBounds="True" x:Name="Animation">
+                                                    <Rectangle x:Name="PART_GlowRect" Width="100" HorizontalAlignment="Left" Fill="Transparent" Margin="-100,0,0,0" />
+                                                </Grid>
+                                            </Border>
+                                            <Border Grid.Column="1" Background="Transparent"></Border>
+                                        </Grid>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Border.OpacityMask>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="{StaticResource Colors.Red}" Offset="0.0" />
+                    <GradientStop Color="{StaticResource Colors.Orange}" Offset="0.5"/>
+                    <GradientStop Color="{StaticResource Colors.Green}" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type c:MenuItem}">
+        <Setter Property="Selected" Value="{StaticResource Brushes.Pink}" />
+        <Setter Property="Foreground" Value="{StaticResource Brushes.White}" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type c:MenuItem}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="56"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Canvas>
+                            <Path x:Name="PART_Selected"
+                                  Fill="{TemplateBinding Selected}"
+                                  Data="M0,0 L0,64 C2,56 10,56 12,56 L40,56 C52,56 56,52 56,40 L56,24 C56,12 52,8 40,8 L12,8C10,8 2,8 0,0"/>
+                        </Canvas>
+                        <Canvas x:Name="PART_Icon"  HorizontalAlignment="Center" VerticalAlignment="Center" Height="24" Width="24" Margin="0 0 0 0">
+                            <Path Fill="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                  Data="{TemplateBinding Icon}" />
+                        </Canvas>
+                        <Label x:Name="PART_Label" 
+                               Grid.Column="1" Foreground="{TemplateBinding Selected}" 
+                               HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                               Margin="12 0 4 0" FontSize="14">
+                            <TextBlock TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{TemplateBinding Content}" />
+                        </Label>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="False">
+                            <Setter Property="Selected" Value="{StaticResource Brushes.White}" />
+                            <Setter TargetName="PART_Selected" Property="Visibility" Value="Hidden" />
+                            <Setter TargetName="PART_Icon" Property="Margin" Value="24 0 0 0" />
+                            <Setter TargetName="PART_Label" Property="Margin" Value="4 0 4 0" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type c:TextField}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Brushes.LightPurple}"/>
+        <Setter Property="Foreground" Value="{StaticResource Brushes.Black}"/>        
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="AllowDrop" Value="True"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="Padding" Value="12 0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type c:TextField}">
+                    <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True"
+                            CornerRadius="12">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Viewbox x:Name="PART_Viewbox" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="10 10 0 10" Visibility="Visible">
+                                <Canvas Width="24" Height="24" ClipToBounds="True">
+                                    <Path x:Name="PART_Icon" Fill="{TemplateBinding BorderBrush}" Data="{TemplateBinding Icon}" />
+                                </Canvas>
+                            </Viewbox>
+                            <Label x:Name="PART_Placeholder" Grid.Column="1"
+                                   Foreground="{TemplateBinding PlaceholderBrush}" Background="Transparent" Margin="2 0"
+                                   Visibility="Collapsed"
+                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                   Padding="{TemplateBinding Padding}">
+                                <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Text="{TemplateBinding Placeholder}" />
+                            </Label>
+                            <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" TargetName="PART_Border" Value="0.56"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
+                            <Setter Property="Fill" TargetName="PART_Icon" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
+                            <Setter Property="Fill" TargetName="PART_Icon" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Visibility" TargetName="PART_Placeholder" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter Property="Visibility" TargetName="PART_Viewbox" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="True"/>
+                    <Condition Property="IsSelectionActive" Value="False"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>
