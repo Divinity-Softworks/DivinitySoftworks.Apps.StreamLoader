@@ -3,7 +3,7 @@ using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels;
 using System.Windows.Controls;
 
 namespace DivinitySoftworks.Apps.StreamLoader.UI.Pages {
-    
+
     public partial class SettingsPage : Page {
         public SettingsPage(ISettingsPageViewModel settingsPageViewModel) {
             InitializeComponent();
@@ -18,7 +18,7 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.Pages {
         }
 
         private async void TextField_TextChanged(object sender, TextChangedEventArgs e) {
-            if(((TextField)sender).IsFocused)
+            if (((TextField)sender).IsFocused)
                 await ViewModel.SaveAsync();
         }
 

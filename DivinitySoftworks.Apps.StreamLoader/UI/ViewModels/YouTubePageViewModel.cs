@@ -1,16 +1,21 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.Data.Models;
+﻿using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
+using DivinitySoftworks.Apps.StreamLoader.Data.Models;
 using DivinitySoftworks.Apps.StreamLoader.Services;
 using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels.Base;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
 
     public interface IYouTubePageViewModel {
         string Url { get; set; }
 
-        void AddStreamItem(string url);
-        void AddStreamItem(Uri uri);
+        StreamType StreamType { get; set; }
+
+        Task AddStreamItemAsync(string url, StreamType streamType);
+
+        Task AddStreamItemAsync(Uri uri, StreamType streamType);
     }
 
     internal class YouTubePageViewModel : ViewModel, IYouTubePageViewModel {
@@ -20,8 +25,8 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
             _streamService = streamService;
         }
 
-        ObservableCollection<StreamItemRequest> _streamItems = new();
-        public ObservableCollection<StreamItemRequest> StreamItems {
+        ObservableCollection<StreamItem> _streamItems = new();
+        public ObservableCollection<StreamItem> StreamItems {
             get {
                 return _streamItems;
             }
@@ -40,11 +45,22 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
             }
         }
 
-        public void AddStreamItem(string url) {
-            _streamItems.Add(_streamService.Add(new Uri(url)));
+        public StreamType _streamType = StreamType.Audio;
+        public StreamType StreamType {
+            get {
+                return _streamType;
+            }
+            set {
+                ChangeAndNotify(ref _streamType, value);
+            }
         }
-        public void AddStreamItem(Uri uri) {
-            _streamItems.Add(_streamService.Add(uri));
+
+        public async Task AddStreamItemAsync(string url, StreamType streamType) {
+            _streamItems.Add(await _streamService.AddAsync(new Uri(url), streamType));
+        }
+
+        public async Task AddStreamItemAsync(Uri uri, StreamType streamType) {
+            _streamItems.Add(await _streamService.AddAsync(uri, streamType));
         }
     }
 }

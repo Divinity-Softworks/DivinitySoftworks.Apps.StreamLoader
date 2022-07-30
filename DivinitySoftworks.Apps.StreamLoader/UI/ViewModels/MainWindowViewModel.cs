@@ -1,8 +1,12 @@
 ﻿using DivinitySoftworks.Apps.StreamLoader.Core.Managers;
+using DivinitySoftworks.Apps.StreamLoader.Data.Models;
+using DivinitySoftworks.Apps.StreamLoader.Services;
 using DivinitySoftworks.Apps.StreamLoader.UI.Pages;
 using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels.Base;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -22,12 +26,15 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
 
     public class MainWindowViewModel : ViewModel, IMainWindowViewModel {
         readonly IConfigurationManager _configurationManager;
+        readonly ILogService _logService;
 
         readonly Dictionary<Type, Page> _pages = new ();
 
-        public MainWindowViewModel(IConfigurationManager configurationManager, YouTubePage youTubePage, SettingsPage settingsPage) {
+        public MainWindowViewModel(IConfigurationManager configurationManager, ILogService logService, YouTubePage youTubePage, SettingsPage settingsPage) {
             _configurationManager = configurationManager;
             _configurationManager.OnConfigurationChanged += ConfigurationManager_OnConfigurationChanged;
+
+            _logService = logService;
 
             _pages.Add(typeof(YouTubePage), youTubePage);
             _pages.Add(typeof(SettingsPage), settingsPage);
@@ -56,6 +63,12 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
             }
         }
 
+        public FixedObservableCollection<LogItem> LogItems { 
+            get { 
+                return _logService.LogItems;
+            } 
+        }
+
         public void SetPage(Type target) {
             if (_pages.ContainsKey(target)) {
                 Page = _pages[target];
@@ -68,10 +81,14 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
         public async ValueTask LoadAsync() {
             string? name = await _configurationManager.GetUserSettingAsync<string>(nameof(Name));
             string? folder = await _configurationManager.GetUserSettingAsync<string>("Folder");
+            string? fileType = await _configurationManager.GetUserSettingAsync<string>("FileType");
             Name = name ?? "Mystery Guest";
 
-            if(string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(folder))
+            if(string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(folder) || string.IsNullOrWhiteSpace(fileType))
                 SetPage(typeof(SettingsPage));
+
+            if(Directory.Exists(folder) && Directory.Exists(Path.Combine(folder, "Downloading")))
+                Directory.Delete(Path.Combine(folder, "Downloading"), true);
         }
 
         private async void ConfigurationManager_OnConfigurationChanged(object? sender, ConfigurationChangedEventArgs e) {

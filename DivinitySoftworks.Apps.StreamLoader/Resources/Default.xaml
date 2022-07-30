@@ -3,38 +3,63 @@
                     xmlns:c="clr-namespace:DivinitySoftworks.Apps.StreamLoader.UI.Components">
     <!-- Colors -->
     <Color x:Key="Colors.White" R="255" G="255" B="255" A="255" />
-    <Color x:Key="Colors.LightGray" R="211" G="211" B="211" A="255" />
-    <Color x:Key="Colors.Gray" R="121" G="119" B="144" A="255" />
     <Color x:Key="Colors.Black" R="0" G="0" B="0" A="255" />
+    
+    <Color x:Key="Colors.Gray.Light" R="211" G="211" B="211" A="255" />
+    <Color x:Key="Colors.Gray" R="121" G="119" B="144" A="255" />
+    <Color x:Key="Colors.Gray.Dark" R="48" G="47" B="56" A="255" />
+    
+    <Color x:Key="Colors.Purple.Light" R="46" G="43" B="74" A="255" />
     <Color x:Key="Colors.Purple" R="39" G="36" B="69" A="255" />
-    <Color x:Key="Colors.LightPurple" R="46" G="43" B="74" A="255" />
+
     <Color x:Key="Colors.Sand" R="255" G="243" B="234" A="255" />
     <Color x:Key="Colors.Pink" R="218" G="108" B="109" A="255" />
-    <Color x:Key="Colors.Red" R="216" G="109" B="109" A="255" />
-    <Color x:Key="Colors.MediumRed" R="243" G="219" B="218" A="255" />
-    <Color x:Key="Colors.LightRed" R="250" G="232" B="231" A="255" />
-    <Color x:Key="Colors.Orange" R="255" G="166" B="112" A="255" />
-    <Color x:Key="Colors.Green" R="48" G="186" B="153" A="255" />
-    <Color x:Key="Colors.MediumGreen" R="203" G="232" B="224" A="255" />
-    <Color x:Key="Colors.LightGreen" R="225" G="242" B="238" A="255" />
+
+    <Color x:Key="Colors.Red.Light" R="250" G="232" B="231" A="255" />
+    <Color x:Key="Colors.Red" R="243" G="219" B="218" A="255" />
+    <Color x:Key="Colors.Red.Dark" R="216" G="109" B="109" A="255" />
+
+    <Color x:Key="Colors.Orange.Light" R="255" G="243" B="234" A="255" />
+    <Color x:Key="Colors.Orange" R="248" G="232" B="217" A="255" />
+    <Color x:Key="Colors.Orange.Dark" R="250" G="167" B="118" A="255" />
+
+    <Color x:Key="Colors.Green.Light" R="225" G="242" B="238" A="255" />
+    <Color x:Key="Colors.Green" R="203" G="232" B="224" A="255" />
+    <Color x:Key="Colors.Green.Dark" R="48" G="186" B="153" A="255" />
+
+    <Color x:Key="Colors.Blue.Light" R="233" G="242" B="255" A="255" />
+    <Color x:Key="Colors.Blue" R="217" G="228" B="245" A="255" />
+    <Color x:Key="Colors.Blue.Dark" R="107" G="132" B="164" A="255" />
 
     <!-- Brushes -->
     <SolidColorBrush x:Key="Brushes.White" Color="{StaticResource Colors.White}" />
-    <SolidColorBrush x:Key="Brushes.LightGray" Color="{StaticResource Colors.LightGray}" />
-    <SolidColorBrush x:Key="Brushes.Gray" Color="{StaticResource Colors.Gray}" />
     <SolidColorBrush x:Key="Brushes.Black" Color="{StaticResource Colors.Black}" />
+    <SolidColorBrush x:Key="Brushes.Gray.Light" Color="{StaticResource Colors.Gray.Light}" />
+    <SolidColorBrush x:Key="Brushes.Gray" Color="{StaticResource Colors.Gray}" />
+    <SolidColorBrush x:Key="Brushes.Gray.Dark" Color="{StaticResource Colors.Gray.Dark}" />
+    
+    <SolidColorBrush x:Key="Brushes.Purple.Light" Color="{StaticResource Colors.Purple.Light}" />
     <SolidColorBrush x:Key="Brushes.Purple" Color="{StaticResource Colors.Purple}" />
-    <SolidColorBrush x:Key="Brushes.LightPurple" Color="{StaticResource Colors.LightPurple}" />
+    
     <SolidColorBrush x:Key="Brushes.Sand" Color="{StaticResource Colors.Sand}" />
     <SolidColorBrush x:Key="Brushes.Pink" Color="{StaticResource Colors.Pink}" />
+
+    <SolidColorBrush x:Key="Brushes.Red.Light" Color="{StaticResource Colors.Red.Light}" />
     <SolidColorBrush x:Key="Brushes.Red" Color="{StaticResource Colors.Red}" />
-    <SolidColorBrush x:Key="Brushes.MediumRed" Color="{StaticResource Colors.MediumRed}" />
-    <SolidColorBrush x:Key="Brushes.LightRed" Color="{StaticResource Colors.LightRed}" />
+    <SolidColorBrush x:Key="Brushes.Red.Dark" Color="{StaticResource Colors.Red.Dark}" />
+
+    <SolidColorBrush x:Key="Brushes.Orange.Light" Color="{StaticResource Colors.Orange.Light}" />
     <SolidColorBrush x:Key="Brushes.Orange" Color="{StaticResource Colors.Orange}" />
+    <SolidColorBrush x:Key="Brushes.Orange.Dark" Color="{StaticResource Colors.Orange.Dark}" />
+
+    <SolidColorBrush x:Key="Brushes.Green.Light" Color="{StaticResource Colors.Green.Light}" />
     <SolidColorBrush x:Key="Brushes.Green" Color="{StaticResource Colors.Green}" />
-    <SolidColorBrush x:Key="Brushes.MediumGreen" Color="{StaticResource Colors.MediumGreen}" />
-    <SolidColorBrush x:Key="Brushes.LightGreen" Color="{StaticResource Colors.LightGreen}" />
-    
+    <SolidColorBrush x:Key="Brushes.Green.Dark" Color="{StaticResource Colors.Green.Dark}" />
+
+    <SolidColorBrush x:Key="Brushes.Blue.Light" Color="{StaticResource Colors.Blue.Light}" />
+    <SolidColorBrush x:Key="Brushes.Blue" Color="{StaticResource Colors.Blue}" />
+    <SolidColorBrush x:Key="Brushes.Blue.Dark" Color="{StaticResource Colors.Blue.Dark}" />
+
     <FontFamily x:Key="Fonts.Primary">Arial Rounded MT Bold</FontFamily>
     <FontFamily x:Key="Fonts.Secondary">Arial</FontFamily>
 
@@ -100,9 +125,9 @@
         <Setter Property="Foreground">
             <Setter.Value>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
-                    <GradientStop Color="{StaticResource Colors.Red}" Offset="0.0" />
-                    <GradientStop Color="{StaticResource Colors.Orange}" Offset="0.5"/>
-                    <GradientStop Color="{StaticResource Colors.Green}" Offset="1.0"/>
+                    <GradientStop Color="{StaticResource Colors.Red.Dark}" Offset="0.0" />
+                    <GradientStop Color="{StaticResource Colors.Orange.Dark}" Offset="0.5"/>
+                    <GradientStop Color="{StaticResource Colors.Green.Dark}" Offset="1.0"/>
                 </LinearGradientBrush>
             </Setter.Value>
         </Setter>
@@ -150,9 +175,30 @@
         </Setter>
     </Style>
 
+    <Style TargetType="{x:Type c:ToggleButton}">
+        <Setter Property="Toggled" Value="{StaticResource Brushes.Gray.Light}" />
+        <Setter Property="Foreground" Value="{StaticResource Brushes.Gray.Light}" />
+        <Setter Property="Cursor" Value="Hand" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type c:ToggleButton}">
+                    <Border x:Name="PART_Border" Background="{TemplateBinding Toggled}" CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsToggled" Value="False">
+                            <Setter TargetName="PART_Border" Property="Background" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="{x:Type c:TextField}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Brushes.LightPurple}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Brushes.Purple.Light}"/>
         <Setter Property="Foreground" Value="{StaticResource Brushes.Black}"/>        
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>

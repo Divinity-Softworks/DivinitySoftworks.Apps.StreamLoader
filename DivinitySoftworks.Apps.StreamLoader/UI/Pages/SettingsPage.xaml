@@ -6,52 +6,52 @@
       Loaded="Page_Loaded">
 
     <StackPanel Background="Transparent" CanVerticallyScroll="False">
-        <Border Padding="16" Background="{StaticResource Brushes.LightGreen}" CornerRadius="24" Margin="0 18 0 0">
+        <Border Padding="16" Background="{StaticResource Brushes.Green.Light}" CornerRadius="24" Margin="0 18 0 0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="12"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Width="36" Height="36" Background="{StaticResource Brushes.MediumGreen}" CornerRadius="12">
+                <Border Width="36" Height="36" Background="{StaticResource Brushes.Green}" CornerRadius="12">
                     <Viewbox Margin="4">
                         <Canvas Width="24" Height="24">
-                            <Path Fill="{StaticResource Brushes.Green}" Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" />
+                            <Path Fill="{StaticResource Brushes.Green.Dark}" Data="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,6A2,2 0 0,0 10,8A2,2 0 0,0 12,10A2,2 0 0,0 14,8A2,2 0 0,0 12,6M12,13C14.67,13 20,14.33 20,17V20H4V17C4,14.33 9.33,13 12,13M12,14.9C9.03,14.9 5.9,16.36 5.9,17V18.1H18.1V17C18.1,16.36 14.97,14.9 12,14.9Z" />
                         </Canvas>
                     </Viewbox>
                 </Border>
                 <c:TextField Grid.Column="2" 
                              BorderThickness="2"
-                             Foreground="{StaticResource Brushes.Green}" Placeholder="Enter your name..." 
-                             CaretBrush="{StaticResource Brushes.Green}"
-                             PlaceholderBrush="{StaticResource Brushes.Gray}" BorderBrush="{StaticResource Brushes.MediumGreen}"
-                             FocusBrush="{StaticResource Brushes.Green}"
+                             Foreground="{StaticResource Brushes.Green.Dark}" Placeholder="Enter your name..." 
+                             CaretBrush="{StaticResource Brushes.Green.Dark}"
+                             PlaceholderBrush="{StaticResource Brushes.Gray}" BorderBrush="{StaticResource Brushes.Green}"
+                             FocusBrush="{StaticResource Brushes.Green.Dark}"
                              VerticalContentAlignment="Center" HorizontalAlignment="Stretch"
                              FontSize="14"
                              Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                              TextChanged="TextField_TextChanged"/>
             </Grid>
         </Border>
-        <Border Padding="16" Background="{StaticResource Brushes.LightRed}" CornerRadius="24" Margin="0 18 0 0">
+        <Border Padding="16" Background="{StaticResource Brushes.Red.Light}" CornerRadius="24" Margin="0 18 0 0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="12"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Border Width="36" Height="36" Background="{StaticResource Brushes.MediumRed}" CornerRadius="12">
+                <Border Width="36" Height="36" Background="{StaticResource Brushes.Red}" CornerRadius="12">
                     <Viewbox Margin="6">
                         <Canvas Width="24" Height="24">
-                            <Path Fill="{StaticResource Brushes.Red}" Data="M22 8V13.81C21.39 13.46 20.72 13.22 20 13.09V8H4V18H13.09C13.04 18.33 13 18.66 13 19C13 19.34 13.04 19.67 13.09 20H4C2.9 20 2 19.11 2 18V6C2 4.89 2.89 4 4 4H10L12 6H20C21.1 6 22 6.89 22 8M20 16H18V20H16L19 23L22 20H20V16Z" />
+                            <Path Fill="{StaticResource Brushes.Red.Dark}" Data="M22 8V13.81C21.39 13.46 20.72 13.22 20 13.09V8H4V18H13.09C13.04 18.33 13 18.66 13 19C13 19.34 13.04 19.67 13.09 20H4C2.9 20 2 19.11 2 18V6C2 4.89 2.89 4 4 4H10L12 6H20C21.1 6 22 6.89 22 8M20 16H18V20H16L19 23L22 20H20V16Z" />
                         </Canvas>
                     </Viewbox>
                 </Border>
                 <c:TextField Grid.Column="2" 
                              BorderThickness="2"
-                             Foreground="{StaticResource Brushes.Red}" Placeholder="Enter the folder where the downloaded files will be saved to..."  
-                             CaretBrush="{StaticResource Brushes.Red}"
-                             PlaceholderBrush="{StaticResource Brushes.Gray}" BorderBrush="{StaticResource Brushes.MediumRed}"
-                             FocusBrush="{StaticResource Brushes.Red}"
+                             Foreground="{StaticResource Brushes.Red.Dark}" Placeholder="Enter the folder where the downloaded files will be saved to..."  
+                             CaretBrush="{StaticResource Brushes.Red.Dark}"
+                             PlaceholderBrush="{StaticResource Brushes.Gray}" BorderBrush="{StaticResource Brushes.Red}"
+                             FocusBrush="{StaticResource Brushes.Red.Dark}"
                              VerticalContentAlignment="Center" HorizontalAlignment="Stretch"
                              FontSize="14"
                              Text="{Binding Folder, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
