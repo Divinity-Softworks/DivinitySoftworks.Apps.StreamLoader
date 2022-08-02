@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivinitySoftworks.Apps.StreamLoader", "DivinitySoftworks.Apps.StreamLoader\DivinitySoftworks.Apps.StreamLoader.csproj", "{6D953C9F-9344-4AA5-ACF9-6866DC723E3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DivinitySoftworks.Apps.StreamLoader", "DivinitySoftworks.Apps.StreamLoader\DivinitySoftworks.Apps.StreamLoader.csproj", "{6D953C9F-9344-4AA5-ACF9-6866DC723E3D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DivinitySoftworks.Libraries", "DivinitySoftworks.Libraries", "{633CE4C2-129D-49CC-B85E-C000A4CD7F83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DivinitySoftworks.Apps.Core", "..\DivinitySoftworks.Apps.Core\DivinitySoftworks.Apps.Core\DivinitySoftworks.Apps.Core.csproj", "{BA01DBCB-F8AE-4A8C-9DC8-35FFC8D57442}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{6D953C9F-9344-4AA5-ACF9-6866DC723E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D953C9F-9344-4AA5-ACF9-6866DC723E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D953C9F-9344-4AA5-ACF9-6866DC723E3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA01DBCB-F8AE-4A8C-9DC8-35FFC8D57442}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA01DBCB-F8AE-4A8C-9DC8-35FFC8D57442}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA01DBCB-F8AE-4A8C-9DC8-35FFC8D57442}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA01DBCB-F8AE-4A8C-9DC8-35FFC8D57442}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BA01DBCB-F8AE-4A8C-9DC8-35FFC8D57442} = {633CE4C2-129D-49CC-B85E-C000A4CD7F83}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0426770B-2707-4532-8919-66F46B648577}

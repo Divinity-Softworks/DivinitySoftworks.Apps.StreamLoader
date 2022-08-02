@@ -1,8 +1,8 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.Core.Managers;
+﻿using DivinitySoftworks.Apps.Core.Configuration.Managers;
+using DivinitySoftworks.Apps.Core.Data;
 using DivinitySoftworks.Apps.StreamLoader.Data.Models;
 using DivinitySoftworks.Apps.StreamLoader.Services;
 using DivinitySoftworks.Apps.StreamLoader.UI.Pages;
-using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,7 +28,7 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
         readonly IConfigurationManager _configurationManager;
         readonly ILogService _logService;
 
-        readonly Dictionary<Type, Page> _pages = new ();
+        readonly Dictionary<Type, Page> _pages = new();
 
         public MainWindowViewModel(IConfigurationManager configurationManager, ILogService logService, YouTubePage youTubePage, SettingsPage settingsPage) {
             _configurationManager = configurationManager;
@@ -63,10 +63,10 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
             }
         }
 
-        public FixedObservableCollection<LogItem> LogItems { 
-            get { 
+        public FixedObservableCollection<LogItem> LogItems {
+            get {
                 return _logService.LogItems;
-            } 
+            }
         }
 
         public void SetPage(Type target) {
@@ -84,10 +84,10 @@ namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {
             string? fileType = await _configurationManager.GetUserSettingAsync<string>("FileType");
             Name = name ?? "Mystery Guest";
 
-            if(string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(folder) || string.IsNullOrWhiteSpace(fileType))
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(folder) || string.IsNullOrWhiteSpace(fileType))
                 SetPage(typeof(SettingsPage));
 
-            if(Directory.Exists(folder) && Directory.Exists(Path.Combine(folder, "Downloading")))
+            if (Directory.Exists(folder) && Directory.Exists(Path.Combine(folder, "Downloading")))
                 Directory.Delete(Path.Combine(folder, "Downloading"), true);
         }
 

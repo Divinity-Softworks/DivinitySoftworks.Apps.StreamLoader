@@ -1,7 +1,7 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
+﻿using DivinitySoftworks.Apps.Core.Data;
+using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
 using DivinitySoftworks.Apps.StreamLoader.Data.Models;
 using DivinitySoftworks.Apps.StreamLoader.Services;
-using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels.Base;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;

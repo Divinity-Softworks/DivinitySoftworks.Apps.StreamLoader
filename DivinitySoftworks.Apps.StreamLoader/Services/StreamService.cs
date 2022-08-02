@@ -1,5 +1,5 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.Core.Configuration;
-using DivinitySoftworks.Apps.StreamLoader.Core.Managers;
+﻿using DivinitySoftworks.Apps.Core.Configuration.Managers;
+using DivinitySoftworks.Apps.StreamLoader.Core.Configuration;
 using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
 using DivinitySoftworks.Apps.StreamLoader.Data.Models;
 using MediatR;
@@ -26,7 +26,7 @@ namespace DivinitySoftworks.Apps.StreamLoader.Services {
         }
 
         public async Task<StreamItem> AddAsync(Uri uri, StreamType streamType) {
-            if(!Directory.Exists(_appSettings.Folder))
+            if (!Directory.Exists(_appSettings.Folder))
                 Directory.CreateDirectory(_appSettings.Folder);
 
             string? fileType = await _configurationManager.GetUserSettingAsync<string>("FileType");
@@ -35,7 +35,7 @@ namespace DivinitySoftworks.Apps.StreamLoader.Services {
 
             StreamItem item = new(uri, _appSettings.Folder, streamType, fileType);
 
-            if(_mediator is not null)
+            if (_mediator is not null)
                 _ = _mediator.Send(item);
 
             return item;

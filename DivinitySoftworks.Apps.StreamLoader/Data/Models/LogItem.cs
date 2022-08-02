@@ -1,10 +1,9 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
-using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels.Base;
-using MediatR;
+﻿using DivinitySoftworks.Apps.Core.Data;
+using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
 using System;
 
 namespace DivinitySoftworks.Apps.StreamLoader.Data.Models {
-    public class LogItem : ViewModel { 
+    public class LogItem : ViewModel {
 
         public LogItem() {
 

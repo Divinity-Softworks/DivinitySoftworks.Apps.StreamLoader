@@ -3,6 +3,8 @@
       xmlns:c="clr-namespace:DivinitySoftworks.Apps.StreamLoader.UI.Components"
       xmlns:v="clr-namespace:DivinitySoftworks.Apps.StreamLoader.UI.Converters"
       xmlns:e="clr-namespace:DivinitySoftworks.Apps.StreamLoader.Data.Enums"
+      xmlns:components="clr-namespace:DivinitySoftworks.Apps.Core.Components;assembly=DivinitySoftworks.Apps.Core"
+      xmlns:converters="clr-namespace:DivinitySoftworks.Apps.Core.Converters;assembly=DivinitySoftworks.Apps.Core"
       mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800"
       Title="YouTube" Background="White">
     <Grid Margin="0 16 0 0">
@@ -15,13 +17,13 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="96" />
         </Grid.ColumnDefinitions>
-        <c:TextField Foreground="{StaticResource Brushes.Black}" Placeholder="Enter an url to a YouTube video..." 
-                     PlaceholderBrush="{StaticResource Brushes.Gray.Light}" BorderBrush="{StaticResource Brushes.Gray.Light}"
-                     Icon="M10.6 13.4A1 1 0 0 1 9.2 14.8A4.8 4.8 0 0 1 9.2 7.8L12.7 4.2A5.1 5.1 0 0 1 19.8 4.2A5.1 5.1 0 0 1 19.8 11.3L18.3 12.8A6.4 6.4 0 0 0 17.9 10.4L18.4 9.9A3.2 3.2 0 0 0 18.4 5.6A3.2 3.2 0 0 0 14.1 5.6L10.6 9.2A2.9 2.9 0 0 0 10.6 13.4M23 18V20H20V23H18V20H15V18H18V15H20V18M16.2 13.7A4.8 4.8 0 0 0 14.8 9.2A1 1 0 0 0 13.4 10.6A2.9 2.9 0 0 1 13.4 14.8L9.9 18.4A3.2 3.2 0 0 1 5.6 18.4A3.2 3.2 0 0 1 5.6 14.1L6.1 13.7A7.3 7.3 0 0 1 5.7 11.2L4.2 12.7A5.1 5.1 0 0 0 4.2 19.8A5.1 5.1 0 0 0 11.3 19.8L13.1 18A6 6 0 0 1 16.2 13.7Z"
-                     VerticalContentAlignment="Center" HorizontalAlignment="Stretch"
-                     FontSize="14" Text="{Binding Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     Margin="0 0 8 0"
-                     KeyUp="TextBox_KeyUp" />
+        <components:TextField Foreground="{StaticResource Brushes.Black}" Placeholder="Enter an url to a YouTube video..." 
+                              PlaceholderBrush="{StaticResource Brushes.Gray.Light}" BorderBrush="{StaticResource Brushes.Gray.Light}"
+                              Icon="M10.6 13.4A1 1 0 0 1 9.2 14.8A4.8 4.8 0 0 1 9.2 7.8L12.7 4.2A5.1 5.1 0 0 1 19.8 4.2A5.1 5.1 0 0 1 19.8 11.3L18.3 12.8A6.4 6.4 0 0 0 17.9 10.4L18.4 9.9A3.2 3.2 0 0 0 18.4 5.6A3.2 3.2 0 0 0 14.1 5.6L10.6 9.2A2.9 2.9 0 0 0 10.6 13.4M23 18V20H20V23H18V20H15V18H18V15H20V18M16.2 13.7A4.8 4.8 0 0 0 14.8 9.2A1 1 0 0 0 13.4 10.6A2.9 2.9 0 0 1 13.4 14.8L9.9 18.4A3.2 3.2 0 0 1 5.6 18.4A3.2 3.2 0 0 1 5.6 14.1L6.1 13.7A7.3 7.3 0 0 1 5.7 11.2L4.2 12.7A5.1 5.1 0 0 0 4.2 19.8A5.1 5.1 0 0 0 11.3 19.8L13.1 18A6 6 0 0 1 16.2 13.7Z"
+                              VerticalContentAlignment="Center" HorizontalAlignment="Stretch"
+                              FontSize="14" Text="{Binding Url, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Margin="0 0 8 0"
+                              KeyUp="TextBox_KeyUp" />
         <Border Grid.Column="1" CornerRadius="12" BorderThickness="1">
             <Border.Style>
                 <Style TargetType="{x:Type Border}">
@@ -40,22 +42,22 @@
                 </Grid.ColumnDefinitions>
                 <c:ToggleButton Grid.Column="0" CornerRadius="12 0 0 12"
                                 Value="{x:Static e:StreamType.Movie}" 
-                                IsToggled="{Binding StreamType, Converter={v:EnumToBooleanConverter True={x:Static e:StreamType.Movie}}}"
+                                IsToggled="{Binding StreamType, Converter={converters:EnumToBooleanConverter True={x:Static e:StreamType.Movie}}}"
                                 Click="ToggleButton_Click">
                     <Viewbox Width="24" Height="24">
                         <Canvas Width="24" Height="24">
-                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type c:ToggleButton}}, Converter={v:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
+                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type c:ToggleButton}}, Converter={converters:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
                                     Data="M18,9H16V7H18M18,13H16V11H18M18,17H16V15H18M8,9H6V7H8M8,13H6V11H8M8,17H6V15H8M18,3V5H16V3H8V5H6V3H4V21H6V19H8V21H16V19H18V21H20V3H18Z" />
                         </Canvas>
                     </Viewbox>
                 </c:ToggleButton>
                 <c:ToggleButton Grid.Column="1" CornerRadius="0 12 12 0"
                                 Value="{x:Static e:StreamType.Audio}"
-                                IsToggled="{Binding StreamType, Converter={v:EnumToBooleanConverter True={x:Static e:StreamType.Audio}}}"
+                                IsToggled="{Binding StreamType, Converter={converters:EnumToBooleanConverter True={x:Static e:StreamType.Audio}}}"
                                 Click="ToggleButton_Click">
                     <Viewbox Width="24" Height="24">
                         <Canvas Width="24" Height="24">
-                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type c:ToggleButton}}, Converter={v:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
+                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type c:ToggleButton}}, Converter={converters:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
                                   Data="M21,3V15.5A3.5,3.5 0 0,1 17.5,19A3.5,3.5 0 0,1 14,15.5A3.5,3.5 0 0,1 17.5,12C18.04,12 18.55,12.12 19,12.34V6.47L9,8.6V17.5A3.5,3.5 0 0,1 5.5,21A3.5,3.5 0 0,1 2,17.5A3.5,3.5 0 0,1 5.5,14C6.04,14 6.55,14.12 7,14.34V6L21,3Z" />
                         </Canvas>
                     </Viewbox>

@@ -1,4 +1,4 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.UI.Components;
+﻿using DivinitySoftworks.Apps.Core.Components;
 using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels;
 using System.Windows.Controls;
 

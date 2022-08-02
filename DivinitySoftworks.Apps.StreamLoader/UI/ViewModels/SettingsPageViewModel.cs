@@ -1,5 +1,5 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.Core.Managers;
-using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels.Base;
+﻿using DivinitySoftworks.Apps.Core.Configuration.Managers;
+using DivinitySoftworks.Apps.Core.Data;
 using System.Threading.Tasks;
 
 namespace DivinitySoftworks.Apps.StreamLoader.UI.ViewModels {

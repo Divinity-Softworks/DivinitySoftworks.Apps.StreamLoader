@@ -1,5 +1,5 @@
-﻿using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
-using DivinitySoftworks.Apps.StreamLoader.UI.ViewModels.Base;
+﻿using DivinitySoftworks.Apps.Core.Data;
+using DivinitySoftworks.Apps.StreamLoader.Data.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace DivinitySoftworks.Apps.StreamLoader.Data.Models {
     public class StreamItem : ViewModel, IRequest<object> {
-        readonly Dictionary<int, float> _progresses = new ();
+        readonly Dictionary<int, float> _progresses = new();
 
         #region Constructors
 
@@ -42,12 +42,12 @@ namespace DivinitySoftworks.Apps.StreamLoader.Data.Models {
 
         string _name = "Pending...";
         public string Name {
-            get { 
+            get {
                 return _name;
             }
-            set { 
+            set {
                 ChangeAndNotify(ref _name, value);
-            } 
+            }
         }
 
         public string Folder { get; private set; }

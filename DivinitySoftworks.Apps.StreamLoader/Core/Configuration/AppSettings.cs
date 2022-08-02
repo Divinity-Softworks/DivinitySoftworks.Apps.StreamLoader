@@ -1,6 +1,6 @@
 ﻿namespace DivinitySoftworks.Apps.StreamLoader.Core.Configuration {
 
-    public interface IAppSettings {
+    public interface IAppSettings : Apps.Core.Configuration.IAppSettings {
         public string Folder { get; set; }
     }
 

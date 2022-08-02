@@ -62,10 +62,6 @@
 
     <FontFamily x:Key="Fonts.Primary">Arial Rounded MT Bold</FontFamily>
     <FontFamily x:Key="Fonts.Secondary">Arial</FontFamily>
-
-    <Style TargetType="{x:Type c:DateTimeLabel}">
-        <Setter Property="Foreground" Value="{StaticResource Brushes.Purple}" />
-    </Style>
     
     <Style TargetType="{x:Type Label}">
         <Setter Property="Foreground" Value="{StaticResource Brushes.Purple}" />
@@ -196,74 +192,4 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type c:TextField}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="{StaticResource Brushes.Purple.Light}"/>
-        <Setter Property="Foreground" Value="{StaticResource Brushes.Black}"/>        
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="AllowDrop" Value="True"/>
-        <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="Padding" Value="12 0" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type c:TextField}">
-                    <Border x:Name="PART_Border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True"
-                            CornerRadius="12">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                            </Grid.ColumnDefinitions>
-                            <Viewbox x:Name="PART_Viewbox" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" Margin="10 10 0 10" Visibility="Visible">
-                                <Canvas Width="24" Height="24" ClipToBounds="True">
-                                    <Path x:Name="PART_Icon" Fill="{TemplateBinding BorderBrush}" Data="{TemplateBinding Icon}" />
-                                </Canvas>
-                            </Viewbox>
-                            <Label x:Name="PART_Placeholder" Grid.Column="1"
-                                   Foreground="{TemplateBinding PlaceholderBrush}" Background="Transparent" Margin="2 0"
-                                   Visibility="Collapsed"
-                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
-                                   Padding="{TemplateBinding Padding}">
-                                <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Text="{TemplateBinding Placeholder}" />
-                            </Label>
-                            <ScrollViewer x:Name="PART_ContentHost" Grid.Column="1" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" TargetName="PART_Border" Value="0.56"/>
-                        </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
-                            <Setter Property="Fill" TargetName="PART_Icon" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter Property="BorderBrush" TargetName="PART_Border" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
-                            <Setter Property="Fill" TargetName="PART_Icon" Value="{Binding Path=FocusBrush, RelativeSource={RelativeSource AncestorType={x:Type c:TextField}}}"/>
-                        </Trigger>
-                        <Trigger Property="Text" Value="">
-                            <Setter Property="Visibility" TargetName="PART_Placeholder" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="Icon" Value="{x:Null}">
-                            <Setter Property="Visibility" TargetName="PART_Viewbox" Value="Collapsed"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsInactiveSelectionHighlightEnabled" Value="True"/>
-                    <Condition Property="IsSelectionActive" Value="False"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-            </MultiTrigger>
-        </Style.Triggers>
-    </Style>
-    
 </ResourceDictionary>
