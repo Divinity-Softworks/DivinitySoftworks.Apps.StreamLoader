@@ -145,21 +145,20 @@ namespace DivinitySoftworks.Apps.StreamLoader.Core.Handlers {
             Debug.WriteLine($"{_identifier} | [{e.Id}] : {_streamItem.Progress}%");
         }
 
-        private void SaveAsAudioFile(string inputDirectory, string fileName, GrabbedMedia audioMedia) {
+        private static void SaveAsAudioFile(string inputDirectory, string fileName, GrabbedMedia audioMedia) {
             if(File.Exists(fileName))
                 File.Delete(fileName);
             
             MediaFile inputFile = new(Path.Combine(inputDirectory, $"{audioMedia.Channels}.{audioMedia.Container}".ToValidFileName()));
             MediaFile outputFile = new(fileName);
 
-            using (var engine = new Engine()) {
-                engine.GetMetadata(inputFile);
-
-                engine.Convert(inputFile, outputFile);
-            }
+            using Engine engine = new ();
+            
+            engine.GetMetadata(inputFile);
+            engine.Convert(inputFile, outputFile);
         }
 
-        private void SaveAsVideoFile(string inputDirectory, string fileName, GrabbedMedia videoMedia, GrabbedMedia audioMedia) {
+        private static void SaveAsVideoFile(string inputDirectory, string fileName, GrabbedMedia videoMedia, GrabbedMedia audioMedia) {
             if (File.Exists(fileName))
                 File.Delete(fileName);
 

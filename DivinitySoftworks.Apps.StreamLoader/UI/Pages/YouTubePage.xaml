@@ -40,28 +40,32 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <c:ToggleButton Grid.Column="0" CornerRadius="12 0 0 12"
-                                Value="{x:Static e:StreamType.Movie}" 
-                                IsToggled="{Binding StreamType, Converter={converters:EnumToBooleanConverter True={x:Static e:StreamType.Movie}}}"
-                                Click="ToggleButton_Click">
+                <components:ToggleButton Grid.Column="0" CornerRadius="12 0 0 12"
+                                         Value="{x:Static e:StreamType.Movie}" 
+                                         Toggled="{StaticResource Brushes.Gray.Light}"
+                                         Foreground="{StaticResource Brushes.Gray.Light}"
+                                         IsToggled="{Binding StreamType, Converter={converters:EnumToBooleanConverter True={x:Static e:StreamType.Movie}}}"
+                                         Click="ToggleButton_Click">
                     <Viewbox Width="24" Height="24">
                         <Canvas Width="24" Height="24">
-                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type c:ToggleButton}}, Converter={converters:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
+                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type components:ToggleButton}}, Converter={converters:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
                                     Data="M18,9H16V7H18M18,13H16V11H18M18,17H16V15H18M8,9H6V7H8M8,13H6V11H8M8,17H6V15H8M18,3V5H16V3H8V5H6V3H4V21H6V19H8V21H16V19H18V21H20V3H18Z" />
                         </Canvas>
                     </Viewbox>
-                </c:ToggleButton>
-                <c:ToggleButton Grid.Column="1" CornerRadius="0 12 12 0"
-                                Value="{x:Static e:StreamType.Audio}"
-                                IsToggled="{Binding StreamType, Converter={converters:EnumToBooleanConverter True={x:Static e:StreamType.Audio}}}"
-                                Click="ToggleButton_Click">
+                </components:ToggleButton>
+                <components:ToggleButton Grid.Column="1" CornerRadius="0 12 12 0"
+                                         Value="{x:Static e:StreamType.Audio}"
+                                         Toggled="{StaticResource Brushes.Gray.Light}"
+                                         Foreground="{StaticResource Brushes.Gray.Light}"
+                                         IsToggled="{Binding StreamType, Converter={converters:EnumToBooleanConverter True={x:Static e:StreamType.Audio}}}"
+                                         Click="ToggleButton_Click">
                     <Viewbox Width="24" Height="24">
                         <Canvas Width="24" Height="24">
-                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type c:ToggleButton}}, Converter={converters:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
+                            <Path Fill="{Binding IsToggled, RelativeSource={RelativeSource AncestorType={x:Type components:ToggleButton}}, Converter={converters:BooleanToBrushConverter True={StaticResource Brushes.Black}, False={StaticResource Brushes.Gray.Light}}}" 
                                   Data="M21,3V15.5A3.5,3.5 0 0,1 17.5,19A3.5,3.5 0 0,1 14,15.5A3.5,3.5 0 0,1 17.5,12C18.04,12 18.55,12.12 19,12.34V6.47L9,8.6V17.5A3.5,3.5 0 0,1 5.5,21A3.5,3.5 0 0,1 2,17.5A3.5,3.5 0 0,1 5.5,14C6.04,14 6.55,14.12 7,14.34V6L21,3Z" />
                         </Canvas>
                     </Viewbox>
-                </c:ToggleButton>
+                </components:ToggleButton>
             </Grid>
         </Border>
 
@@ -86,7 +90,7 @@
                         <Label Grid.Column="1" VerticalAlignment="Center"  >
                             <TextBlock TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Name}" />
                         </Label>
-                        <ProgressBar Grid.Column="2" Value="{Binding Progress}" IsIndeterminate="False" Height="8"  />
+                        <components:ProgressionBar Foreground="{StaticResource SystemBrushes.Progression}" Grid.Column="2" Value="{Binding Progress}" IsIndeterminate="False" Height="8"  />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
